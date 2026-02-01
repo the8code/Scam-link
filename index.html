@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Aylin ❤️</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 90px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yes:active {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background: #ced4da;
+      color: #000;
+      position: absolute;
+      left: 140px;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Aylin 💖</h1>
+    <p>
+      From the moment you came into my life,<br>
+      everything felt warmer, brighter, and real.<br><br>
+      So I have one simple question…
+    </p>
+
+    <h1>Will you be my Valentine? 🌹</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="yesClicked()">YES</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    function moveNoButton() {
+      const maxX = window.innerWidth - 120;
+      const maxY = 70;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Desktop
+    noBtn.addEventListener("mouseover", moveNoButton);
+
+    // Mobile
+    noBtn.addEventListener("touchstart", moveNoButton);
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          width:100%;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ff758c,#ff7eb3);
+          color:white;
+          font-family:Segoe UI, sans-serif;
+          text-align:center;
+          padding:20px;
+        ">
+          <h1>
+            💕 Aylin, you said YES 💕<br><br>
+            I promise to choose you,<br>
+            today, tomorrow, and every day after ❤️
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
