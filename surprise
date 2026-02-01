@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 🎉</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #ff3366;
+      text-align: center;
+      text-shadow: 2px 2px #fff5;
+      animation: pop 1s ease forwards;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 10px;
+      color: #333;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Balloons */
+    .balloon {
+      width: 40px;
+      height: 60px;
+      background-color: #ff3366;
+      border-radius: 50% 50% 50% 50%;
+      position: absolute;
+      bottom: -80px;
+      animation: float 6s ease-in infinite;
+    }
+
+    .balloon:after {
+      content: '';
+      width: 2px;
+      height: 40px;
+      background: #333;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-400px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    /* Different colors and speeds */
+    .balloon:nth-child(1) { background: #ff4d6d; left: 20%; animation-duration: 6s; }
+    .balloon:nth-child(2) { background: #ffcc33; left: 50%; animation-duration: 7s; }
+    .balloon:nth-child(3) { background: #33ccff; left: 70%; animation-duration: 5s; }
+    .balloon:nth-child(4) { background: #9b59b6; left: 30%; animation-duration: 8s; }
+    .balloon:nth-child(5) { background: #2ecc71; left: 80%; animation-duration: 6.5s; }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff3366;
+      top: 0;
+      animation: confettiFall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-10px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <h1>🎉 Happy Birthday! 🎉</h1>
+    <div class="subtitle">Wishing you joy, love, and endless smiles 😊</div>
+  </div>
+
+  <!-- Balloons -->
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <!-- Confetti Script -->
+  <script>
+    const colors = ["#ff3366","#ffcc33","#33ccff","#9b59b6","#2ecc71"];
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+      confetti.style.animationDuration = (Math.random()*3 + 2) + "s";
+      confetti.style.width = confetti.style.height = (Math.random()*8 + 4) + "px";
+      confetti.style.top = -Math.random()*100 + "px";
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
